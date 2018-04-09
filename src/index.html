@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+    <script src="main.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <div class="header__title">HEADER</div>
+        </header>
+
+        <aside class="menu">MENU</aside>
+        <article class="content">
+            <div class="list">
+                <div id='app'>
+                    <div v-for="item in content">
+                        <div class="item"> {{item.name}} <br/> {{item.musician}} </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+        <!-- <div class="footer">FOOTER</div> -->
+        <footer class="footer">FOOTER</footer>
+    </div>
+</body>
+
+</html>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            content: [{
+                name: 'Hungry Like The Wolf',
+                musician: 'Duran Duran',
+                album: 'Rio',
+                assessment: '5',
+                duration: '3:40'
+            }, {
+                name: 'Sweet Dreams',
+                musician: 'Eurythmics',
+                album: 'Sweet Dreams (Are Made of This)',
+                assessment: '4',
+                duration: '3:38'
+            }, {
+                name: 'Rebel Yell',
+                musician: 'Billy Idol',
+                album: 'Rebel Yell',
+                assessment: '3',
+                duration: '4:49'
+            }, {
+                name: 'Safety Dance',
+                musician: 'Men Without Hats',
+                album: 'Greatest',
+                assessment: '4',
+                duration: '2:44'
+            }, {
+                name: 'Dancing With Myself',
+                musician: 'Billy Idol',
+                album: 'Vital Idol',
+                assessment: '4',
+                duration: '5:59'
+            }, {
+                name: 'World In My Eyes',
+                musician: 'Depeche Mode',
+                album: 'Violator',
+                assessment: '4',
+                duration: '4:27'
+            }, {
+                name: 'Blue Monday',
+                musician: 'New Order',
+                album: 'Substance',
+                assessment: '3',
+                duration: '1:12'
+            }, {
+                name: 'We\'re Not Gonna Take It',
+                musician: 'Twisted Sister',
+                album: 'Stay Hungry',
+                assessment: '4',
+                duration: '3:38'
+            }, {
+                name: 'I Hate Myself for Loving You',
+                musician: 'Joan Jett',
+                album: 'Up Your Alley',
+                assessment: '4',
+                duration: '4:07'
+            }, {
+                name: 'Tom Sawyer',
+                musician: 'Rush',
+                album: 'Moving Pictures',
+                assessment: '4',
+                duration: '4:32'
+            }, {
+                name: 'One Way Or Another',
+                musician: 'Blondie',
+                album: 'Parallel Lines',
+                assessment: '5',
+                duration: '3:36'
+            }, {
+                name: 'Take On Me',
+                musician: 'a-ha',
+                album: 'Hunting High and Low (Deluxe Edition)',
+                assessment: '4',
+                duration: '3:45'
+            }, {
+                name: 'Stand On It',
+                musician: 'Bruce Springsteen',
+                album: 'Just Can\'t Sit Down Music',
+                assessment: '5',
+                duration: '3:05'
+            }, {
+                name: 'Jump',
+                musician: 'Van Halen',
+                album: '1984',
+                assessment: '5',
+                duration: '4:03'
+            }, {
+                name: 'You Make My Dreams',
+                musician: 'Hall & Oates',
+                album: 'Gotta Lotta Nerve',
+                assessment: '5',
+                duration: '3:07'
+            }, {
+                name: 'You Should Be Dancing',
+                musician: 'Bee Gees',
+                album: 'Subway',
+                assessment: '3',
+                duration: '4:17'
+            }]
+        }
+    })
+</script>
