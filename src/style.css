@@ -10,51 +10,21 @@ html {
 
 body {
     margin: 0;
+    padding: 0;
 }
 
 img {
     display: block;
     border: 0;
-    width: 100%;
+    /* width: 100%;  */
     height: auto;
 }
 
-
-/*--------------------------------------------------------------
-Accessibility
---------------------------------------------------------------*/
-
-
-/* Text meant only for screen readers */
-
-.screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-
-.screen-reader-text:hover,
-.screen-reader-text:active,
-.screen-reader-text:focus {
-    background-color: #f1f1f1;
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    color: #21759b;
-    display: block;
-    font-size: 14px;
-    font-weight: bold;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000;
-    /* Above WP toolbar */
+.header,
+.footer,
+.menu {
+    background: #eee;
+    padding: 10px;
 }
 
 
@@ -75,13 +45,15 @@ textarea {
 
 h1,
 h2,
-h3 {
+h3,
+h4 {
     margin: 0;
     padding: 1em 0;
 }
 
 p {
-    margin: 0;
+    /* margin: 0; */
+    margin: 0 0 10px 0;
     padding: 1em 0;
 }
 
@@ -106,9 +78,6 @@ General styles
     .header__title {
         font-size: 3em ! important;
     }
-    .item {
-        flex-direction: row;
-    }
 }
 
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
@@ -119,21 +88,47 @@ General styles
     .header__title {
         font-size: 3em ! important;
     }
-    .item {
-        flex-direction: row;
-    }
 }
 
 @media screen and (max-width: 400px) {
     .container {
-        grid-template-rows: 3em 50px auto 3em;
+        grid-template-columns: auto;
+        grid-template-rows: 3em auto auto 3em;
         grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
     }
+    .header__container {
+        display: flex;
+        flex-direction: row;
+    }
     .header__title {
-        font-size: 3em ! important;
+        font-size: 1.5em ! important;
+        text-align: left;
+    }
+    .header__menu {
+        line-height: 3em;
     }
     .item {
-        flex-direction: row ! important;
+        font-size: 0.5em;
+    }
+    .menu__container {
+        display: flex;
+        flex-direction: column;
+    }
+    p {
+        margin: 0;
+        padding: 1em 1em 0em 1em;
+        font-size: 0.6em;
+        text-align: left;
+    }
+    h4 {
+        margin: 0;
+        padding: 0.5em 0;
+        font-size: 0.8em;
+        text-align: center;
+        color: #333333;
+    }
+    img {
+        max-height: 2em;
     }
 }
 
@@ -141,7 +136,7 @@ header {
     grid-area: h;
 }
 
-aside {
+.menu {
     grid-area: m;
 }
 
@@ -151,28 +146,232 @@ aside {
 
 .footer {
     grid-area: f;
-    grid-column: span 8;
+    grid-column: span 12;
+}
+
+
+/*--------------------------------------------------------------
+ Header Menu styles
+--------------------------------------------------------------*/
+
+.header__logo {
+    flex-grow: 1;
+    width: 1.5em;
+}
+
+.header__title {
+    flex-grow: 4;
+}
+
+.header__menu {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.header__menu__icon {
+    margin: auto;
+    display: none;
+    width: 45px;
+    height: 35px;
+    position: relative;
+    cursor: pointer;
+}
+
+.header__menu__icon span {
+    display: block;
+    position: absolute;
+    height: 0.2em;
+    width: 100%;
+    background: #333333;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.header__menu__icon span:nth-child(1) {
+    top: 0px;
+}
+
+.header__menu__icon span:nth-child(2),
+.header__menu__icon span:nth-child(3) {
+    top: 13px;
+}
+
+.header__menu__icon span:nth-child(4) {
+    top: 26px;
+}
+
+.header__menu__links-item {
+    display: inline-block;
+    color: #333333;
+    font-family: Arial;
+    font-size: 0.5em;
+    line-height: 30px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.header__menu__links-item:hover {
+    text-decoration: underline;
+}
+
+.header__menu.header__menu_state_open .header__menu__icon span:nth-child(1) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+.header__menu.header__menu_state_open .header__menu__icon span:nth-child(2) {
+    transform: rotate(45deg);
+}
+
+.header__menu.header__menu_state_open .header__menu__icon span:nth-child(3) {
+    transform: rotate(-45deg);
+}
+
+.header__menu.header__menu_state_open .header__menu__icon span:nth-child(4) {
+    top: 18px;
+    width: 0%;
+    left: 50%;
+}
+
+.header__menu.header__menu_state_open .header__menu__links {
+    display: block;
+}
+
+@media screen and (max-width: 999px) {
+    .header__menu__icon {
+        display: inline-block;
+    }
+    .header__menu__links {
+        position: fixed;
+        display: none;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin-top: 52px;
+        background-color: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        overflow: auto;
+    }
+    .header__menu__links-item {
+        display: block;
+        padding: 10px 0;
+        text-align: center;
+        color: #ffffff;
+    }
+}
+
+
+/*--------------------------------------------------------------
+  Menu styles
+--------------------------------------------------------------*/
+
+.menu__links-item {
+    display: inline-block;
+    font-family: Arial;
+    font-size: 0.5em;
+    line-height: 30px;
+    padding: 0 10px;
+    text-transform: uppercase;
+    text-decoration: none;
+    text-align: center;
+    color: #000000;
+}
+
+.menu__links-item:hover {
+    text-decoration: underline;
+}
+
+
+/*--------------------------------------------------------------
+  Content styles
+--------------------------------------------------------------*/
+
+#app {
+    width: 100%;
 }
 
 .list {
+    padding: 10px;
     display: flex;
-    /* Flex-контейнер. */
     flex-wrap: wrap;
-    /* Многострочный режим. */
+    grid-column: span 12;
+    border-top: 2px solid #FFCA4F;
 }
+
+
+/*--------------------------------------------------------------
+  Content item styles
+--------------------------------------------------------------*/
 
 .item {
     flex-basis: 260px;
-    /* Базовая ширина элемента. */
     flex-grow: 1;
-    /* Элементы должны максимально растягиваться. */
     max-width: 360px;
-    /* Последний элемент не должен расползаться на всю ширину страницы в горизонтальной ориентации. */
     display: flex;
-    /* Каждый элемент, в свою очередь, тоже становится Flex-контейнером. */
-    flex-direction: column;
-    /* Для больших экранов сохраняем расположение иконки сверху. */
+    flex-direction: row;
     align-items: flex-start;
-    /* Выравниваем иконку по левому краю. */
-    border: 2px solid #ff0000;
+    border-bottom: 2px solid #EC4B53;
+    height: 3em;
+    justify-content: space-between;
+}
+
+.item__buttom {
+    flex-grow: 1;
+}
+
+.item__content_column {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 5;
+    max-width: 200px;
+    width: 180px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.item__assesment {
+    flex-grow: 2;
+}
+
+.item__assesment__star {
+    color: #FFCA4F;
+}
+
+.item__duration {
+    flex-grow: 1;
+}
+
+
+/*--------------------------------------------------------------
+  Content item buttom styles
+--------------------------------------------------------------*/
+
+.button {
+    border: 0;
+    background: transparent;
+    box-sizing: border-box;
+    width: 0;
+    height: 2em;
+    /* height: 74px; */
+    border-color: transparent transparent transparent #EC4B53;
+    transition: 100ms all ease;
+    cursor: pointer;
+    border-style: solid;
+    /* border-width: 37px 0 37px 60px; */
+    border-width: 1em 0 1em 1.5em;
+}
+
+.button.paused {
+    border-style: double;
+    border-width: 0px 0 0px 1.5em;
+}
+
+.button:hover {
+    border-color: transparent transparent transparent #EC4B53;
 }
