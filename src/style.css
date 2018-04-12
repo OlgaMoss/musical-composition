@@ -66,35 +66,26 @@ General styles
     min-height: 100vh;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
-    grid-template-rows: 50px 350px 50px;
     grid-gap: 5px;
-    grid-template-areas: "h h h h h h h h h h h h" "m m c c c c c c c c c c" "f f f f f f f f f f f f";
+    grid-template-rows: 3em auto auto auto;
+    grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
 }
 
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
     .container {
         grid-template-areas: "m m m m m m h h h h h h" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
     }
-    .header__title {
-        font-size: 3em ! important;
-    }
-}
-
-@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
-    .container {
-        grid-template-rows: 3em 50px auto 3em;
-        grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
-    }
-    .header__title {
-        font-size: 3em ! important;
-    }
-}
-
-@media screen and (max-width: 400px) {
     .container {
         grid-template-columns: auto;
         grid-template-rows: 3em auto auto auto;
         grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
+    }
+    .item {
+        max-width: 1024px;
+    }
+    .item__content_column {
+        max-width: 800px;
+        width: 780px;
     }
     .header__container {
         display: flex;
@@ -103,6 +94,229 @@ General styles
     .header__title {
         font-size: 1.5em ! important;
         text-align: left;
+        text-transform: uppercase;
+    }
+    .header__menu {
+        line-height: 3em;
+    }
+    .item {
+        font-size: 0.5em;
+    }
+    .menu__container {
+        display: flex;
+        flex-direction: row;
+    }
+    p {
+        margin: 0;
+        padding: 1em 1em 0em 1em;
+        font-size: 0.6em;
+        text-align: left;
+    }
+    h4 {
+        margin: 0;
+        padding: 0.5em 0;
+        font-size: 0.8em;
+        text-align: center;
+        color: #333333;
+    }
+    img {
+        max-height: 2em;
+    }
+}
+
+
+/*--------------------------------------------------------------
+ipad styles
+--------------------------------------------------------------*/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    .container {
+        grid-template-areas: "m m m m m m h h h h h h" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
+    }
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: 3em auto auto auto;
+        grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
+    }
+    .item {
+        max-width: 1024px;
+    }
+    .item__content_column {
+        max-width: 800px;
+        width: 780px;
+    }
+    .header__container {
+        display: flex;
+        flex-direction: row;
+    }
+    .header__title {
+        font-size: 1.5em ! important;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .header__menu {
+        line-height: 3em;
+    }
+    .item {
+        font-size: 0.5em;
+    }
+    .menu__container {
+        display: flex;
+        flex-direction: row;
+    }
+    p {
+        margin: 0;
+        padding: 1em 1em 0em 1em;
+        font-size: 0.6em;
+        text-align: left;
+    }
+    h4 {
+        margin: 0;
+        padding: 0.5em 0;
+        font-size: 0.8em;
+        text-align: center;
+        color: #333333;
+    }
+    img {
+        max-height: 2em;
+    }
+}
+
+
+/* portrait */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: 3em auto auto auto;
+        grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
+    }
+    .item {
+        max-width: 1024px;
+    }
+    .item__content_column {
+        max-width: 600px;
+        width: 580px;
+    }
+    .header__container {
+        display: flex;
+        flex-direction: row;
+    }
+    .header__title {
+        font-size: 1.5em ! important;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .header__menu {
+        line-height: 3em;
+    }
+    .item {
+        font-size: 0.5em;
+    }
+    .menu__container {
+        display: flex;
+        flex-direction: row;
+    }
+    p {
+        margin: 0;
+        padding: 1em 1em 0em 1em;
+        font-size: 0.6em;
+        text-align: left;
+    }
+    h4 {
+        margin: 0;
+        padding: 0.5em 0;
+        font-size: 0.8em;
+        text-align: center;
+        color: #333333;
+    }
+    img {
+        max-height: 2em;
+    }
+}
+
+
+/*--------------------------------------------------------------
+iphone styles
+--------------------------------------------------------------*/
+
+
+/* landscape */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px) and (orientation: landscape) {
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: 3em auto auto auto;
+        grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
+    }
+    .item {
+        max-width: 736px;
+    }
+    .item__content_column {
+        max-width: 400px;
+        width: 380px;
+    }
+    .header__container {
+        display: flex;
+        flex-direction: row;
+    }
+    .header__title {
+        font-size: 1.5em ! important;
+        text-align: left;
+        text-transform: uppercase;
+    }
+    .header__menu {
+        line-height: 3em;
+    }
+    .item {
+        font-size: 0.5em;
+    }
+    .menu__container {
+        display: flex;
+        flex-direction: row;
+    }
+    p {
+        margin: 0;
+        padding: 1em 1em 0em 1em;
+        font-size: 0.6em;
+        text-align: left;
+    }
+    h4 {
+        margin: 0;
+        padding: 0.5em 0;
+        font-size: 0.8em;
+        text-align: center;
+        color: #333333;
+    }
+    img {
+        max-height: 2em;
+    }
+}
+
+
+/* portrait */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 736px) and (orientation: portrait) {
+    .container {
+        grid-template-columns: auto;
+        grid-template-rows: 3em auto auto auto;
+        grid-template-areas: "h h h h h h h h h h h h" "m m m m m m m m m m m m" "c c c c c c c c c c c c" "f f f f f f f f f f f f";
+    }
+    .item {
+        max-width: 360px;
+    }
+    .item__content_column {
+        max-width: 200px;
+        width: 180px;
+    }
+    .header__container {
+        display: flex;
+        flex-direction: row;
+    }
+    .header__title {
+        font-size: 1.5em ! important;
+        text-align: left;
+        text-transform: uppercase;
     }
     .header__menu {
         line-height: 3em;
@@ -242,7 +456,7 @@ header {
     display: block;
 }
 
-@media screen and (max-width: 999px) {
+@media screen and (max-width: 760px) {
     .header__menu__icon {
         display: inline-block;
     }
@@ -309,27 +523,26 @@ header {
 --------------------------------------------------------------*/
 
 .item {
+    margin: auto;
     flex-basis: 260px;
     flex-grow: 1;
-    max-width: 360px;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     border-bottom: 2px solid #EC4B53;
-    height: 3em;
+    height: 4em;
     justify-content: space-between;
 }
 
 .item__buttom {
     flex-grow: 1;
+    /* line-height: 3.3em; */
 }
 
 .item__content_column {
     display: flex;
     flex-direction: column;
     flex-grow: 5;
-    max-width: 200px;
-    width: 180px;
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
@@ -353,6 +566,8 @@ header {
 --------------------------------------------------------------*/
 
 .button {
+    display: inline-block;
+    vertical-align: middle;
     border: 0;
     background: transparent;
     box-sizing: border-box;
