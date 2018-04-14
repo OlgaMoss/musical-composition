@@ -5,20 +5,13 @@
       });
     });
   })(jQuery);
-
-
-  // $(document).ready(function() {
-  //   var btn = $(".button");
-  //   console.log(btn);
-  //   btn.click(function() {
-  //     console.log(btn);
-  //     btn.toggleClass("paused");
-  //     return false;
-  //   });
-  // });
   
-  
+  var btnSelect;
   function startMusicEvent(buttom){
-    var btn = $(buttom);   
+    var btn = $(buttom);
     btn.toggleClass("paused");
+    if (btnSelect && btnSelect != buttom) {
+      $(btnSelect).toggleClass("paused");
+    }
+    btnSelect = buttom;
   }

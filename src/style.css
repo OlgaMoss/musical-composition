@@ -537,6 +537,7 @@ header {
 .item__buttom {
     flex-grow: 1;
     /* line-height: 3.3em; */
+    margin-top: 2px;
 }
 
 .item__content_column {
@@ -571,6 +572,7 @@ header {
     border: 0;
     background: transparent;
     box-sizing: border-box;
+    outline: none;
     width: 0;
     height: 2em;
     /* height: 74px; */
@@ -585,6 +587,7 @@ header {
 .button.paused {
     border-style: double;
     border-width: 0px 0 0px 1.5em;
+    height: 2em;
 }
 
 .button:hover {
